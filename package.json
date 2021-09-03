@@ -27,7 +27,7 @@
     "pg": "^8.7.1",
     "source-map-support": "^0.5.19",
     "typeorm": "^0.2.37",
-    "billing-next": "^1.0.0"
+    "project-next": "^1.0.0"
   },
   "scripts": {
     "dev": "node .",

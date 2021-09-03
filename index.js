@@ -5,7 +5,7 @@ const http = require("http");
 const { parse } = require("url");
 // const { createConnection } = require("typeorm");
 const backend = require("./server");
-const nextApp = require("billing-next");
+const nextApp = require("project-next");
 const app = express();
 // const ormConfig = require("./ormconfig");
 

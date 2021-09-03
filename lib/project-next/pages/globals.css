@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body,
+  html {
+    @apply min-h-screen;
+    @apply min-w-full;
+    @apply text-gray-600;
+  }
+
+  body > div:first-child {
+    @apply min-h-screen;
+    @apply min-w-full;
+  }
+
+  /* layout classes */
+  .page {
+    @apply flex;
+    @apply justify-center;
+    @apply h-full;
+    @apply w-full;
+  }
+
+  .page .content {
+    @apply flex;
+    @apply flex-col;
+    @apply md:flex-row;
+    @apply mt-5;
+  }
+
+  /* field classes */
+
+  .field .label {
+    @apply block;
+    @apply text-sm;
+    @apply font-medium;
+    @apply text-gray-700;
+  }
+
+  .field .info {
+    @apply text-sm;
+    @apply text-gray-500;
+  }
+
+  .field .error {
+    @apply text-sm;
+    @apply text-red-500;
+  }
+
+  .field .label.required::after {
+    content: " *";
+    @apply text-red-500;
+  }
+
+  .field input[type="text"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="tel"] {
+    @apply mt-1;
+    @apply focus:ring-indigo-500;
+    @apply focus:border-indigo-500;
+    @apply block;
+    @apply w-full;
+    @apply shadow-sm;
+    @apply sm:text-sm;
+    @apply border-gray-300;
+    @apply rounded-md;
+    @apply disabled:bg-gray-200;
+  }
+
+  .field input[type="checkbox"],
+  input[type="radio"] {
+    @apply block;
+    @apply focus:ring-indigo-500;
+    @apply h-4;
+    @apply w-4;
+    @apply text-indigo-600;
+    @apply border-gray-300;
+  }
+
+  .field textarea {
+    @apply shadow-sm;
+    @apply focus:ring-indigo-500;
+    @apply focus:border-indigo-500;
+    @apply mt-1;
+    @apply block;
+    @apply w-full;
+    @apply sm:text-sm;
+    @apply border-gray-300;
+    @apply rounded-md;
+  }
+
+  .field select {
+    @apply mt-1;
+    @apply block;
+    @apply w-full;
+    @apply py-2;
+    @apply px-3;
+    @apply border;
+    @apply border-gray-300;
+    @apply bg-white;
+    @apply rounded-md;
+    @apply shadow-sm;
+    @apply focus:outline-none;
+    @apply focus:ring-indigo-500;
+    @apply focus:border-indigo-500;
+    @apply sm:text-sm;
+  }
+
+  button.button {
+    @apply group;
+    @apply relative;
+    @apply flex;
+    @apply justify-center;
+    @apply py-2;
+    @apply px-4;
+    @apply border;
+    @apply border-transparent;
+    @apply text-sm;
+    @apply font-medium;
+    @apply rounded-md;
+    @apply text-white;
+    @apply focus:outline-none;
+    @apply focus:ring-2;
+    @apply focus:ring-offset-2;
+    @apply disabled:bg-gray-200;
+    @apply disabled:text-gray-500;
+  }
+
+  button.button.animate > svg.defaultIcon {
+    @apply block;
+  }
+
+  button.button.animate > svg.animateIcon {
+    @apply hidden;
+  }
+
+  button.button.animate:disabled > svg.defaultIcon {
+    @apply hidden;
+  }
+
+  button.button.animate:disabled > svg.animateIcon {
+    @apply animate-spin;
+    @apply block;
+  }
+  button.button.icon {
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+  }
+
+  button.button.primary {
+    @apply bg-indigo-600;
+    @apply hover:bg-indigo-700;
+    @apply focus:ring-indigo-500;
+    @apply disabled:bg-gray-300;
+  }
+
+  button.button.secondary {
+    @apply bg-gray-600;
+    @apply hover:bg-gray-700;
+    @apply focus:ring-gray-500;
+    @apply disabled:bg-gray-300;
+  }
+
+  button.button.success {
+    @apply bg-green-600;
+    @apply hover:bg-green-700;
+    @apply focus:ring-green-500;
+    @apply disabled:bg-gray-300;
+  }
+
+  button.button.danger {
+    @apply bg-red-600;
+    @apply hover:bg-red-700;
+    @apply focus:ring-red-500;
+    @apply disabled:bg-gray-300;
+  }
+
+  button.button.warning {
+    @apply bg-yellow-600;
+    @apply hover:bg-yellow-700;
+    @apply focus:ring-yellow-500;
+    @apply disabled:bg-gray-300;
+  }
+
+  button.button.info {
+    @apply bg-blue-600;
+    @apply hover:bg-blue-700;
+    @apply focus:ring-blue-500;
+    @apply disabled:bg-gray-300;
+  }
+
+  button.button.light {
+    @apply bg-white;
+    @apply hover:bg-white;
+    @apply focus:ring-white;
+    @apply disabled:bg-gray-300;
+  }
+
+  button.button.dark {
+    @apply bg-black;
+    @apply hover:bg-black;
+    @apply focus:ring-black;
+    @apply disabled:bg-gray-300;
+  }
+
+  /* table classes */
+
+  table.table {
+    @apply min-w-full;
+    @apply divide-y;
+    @apply divide-gray-200;
+    @apply table-auto;
+  }
+
+  table.table thead {
+    @apply bg-gray-100;
+  }
+
+  table.table thead th:not([scope="action"]) {
+    @apply px-6;
+    @apply py-3;
+    @apply text-left;
+    @apply text-xs;
+    @apply font-medium;
+    @apply text-gray-500;
+    @apply uppercase;
+    @apply tracking-wider;
+  }
+
+  table.table thead th[scope="action"] {
+    @apply relative;
+    @apply px-6;
+    @apply py-3;
+    @apply w-max;
+  }
+
+  table.table tbody td:not([scope="action"]) {
+    @apply px-6;
+    @apply py-4;
+    @apply whitespace-nowrap;
+    @apply text-sm;
+  }
+
+  table.table tbody td[scope="action"] {
+    @apply py-4;
+    @apply whitespace-nowrap;
+    @apply text-sm;
+    @apply font-medium;
+  }
+
+  div.main {
+    @apply w-full;
+    @apply h-full;
+    @apply bg-blue-50;
+  }
+
+  .fit-content {
+    height: fit-content;
+  }
+
+  /* multiform */
+
+  .multiform .card {
+    @apply shadow;
+    @apply sm:rounded-md;
+    @apply sm:overflow-hidden;
+  }
+
+  .multiform .card .card-body {
+    @apply bg-white;
+    @apply space-y-6;
+    @apply p-5;
+    @apply md:p-6;
+  }
+
+  /* pagination */
+  .pagination {
+    @apply relative;
+    @apply z-0;
+    @apply inline-flex;
+    @apply rounded-md;
+    @apply shadow-sm;
+    @apply -space-x-px;
+  }
+
+  .pagination .index {
+    @apply bg-white;
+    @apply border-gray-300;
+    @apply text-gray-500;
+    @apply hover:bg-gray-50;
+    @apply relative;
+    @apply inline-flex;
+    @apply items-center;
+    @apply px-4;
+    @apply py-2;
+    @apply border;
+    @apply text-sm;
+    @apply font-medium;
+  }
+
+  .pagination .index.active {
+    @apply z-10;
+    @apply bg-indigo-50;
+    @apply border-indigo-500;
+    @apply text-indigo-600;
+    @apply hover:bg-indigo-50;
+  }
+}
