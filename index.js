@@ -2,16 +2,13 @@ require("source-map-support").install();
 
 const express = require("express");
 const http = require("http");
-const { parse } = require("url");
 // const { createConnection } = require("typeorm");
 const backend = require("./server");
-const nextApp = require("billing-next");
 const app = express();
 // const ormConfig = require("./ormconfig");
 
 (async () => {
   const mod = await backend({ dev: true });
-  const nextHandler = await nextApp({ dev: true });
 
   // await createConnection(ormConfig["default"]);
 
@@ -26,12 +23,6 @@ const app = express();
         console.log(err);
         res.status(500).send("oops... internal server error");
       });
-  });
-
-  app.use((req, res) => {
-    const parsedUrl = parse(req.url, true);
-
-    nextHandler(req, res, parsedUrl);
   });
 
   const httpServer = http.createServer(app);
